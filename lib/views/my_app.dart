@@ -101,37 +101,60 @@ class _MyHomePageState extends State<MyHomePage> {
     if (displayElement[0] == displayElement[1] &&
         displayElement[0] == displayElement[2] &&
         displayElement[0] != '') {
-      displayElement[4] = 'Win';
+      _showWinDialog(displayElement[0]);
     } else if (displayElement[3] == displayElement[4] &&
         displayElement[3] == displayElement[5] &&
         displayElement[3] != '') {
-      displayElement[4] = 'Win';
+      _showWinDialog(displayElement[3]);
     } else if (displayElement[6] == displayElement[7] &&
         displayElement[6] == displayElement[8] &&
         displayElement[6] != '') {
-      displayElement[4] = 'Win';
+      _showWinDialog(displayElement[6]);
     } else if (displayElement[0] == displayElement[3] &&
         displayElement[0] == displayElement[6] &&
         displayElement[0] != '') {
-      displayElement[4] = 'Win';
+      _showWinDialog(displayElement[0]);
     } else if (displayElement[1] == displayElement[4] &&
         displayElement[1] == displayElement[7] &&
         displayElement[1] != '') {
-      displayElement[4] = 'Win';
+      _showWinDialog(displayElement[1]);
     } else if (displayElement[2] == displayElement[5] &&
         displayElement[2] == displayElement[8] &&
         displayElement[2] != '') {
-      displayElement[4] = 'Win';
+      _showWinDialog(displayElement[2]);
     } else if (displayElement[0] == displayElement[4] &&
         displayElement[0] == displayElement[8] &&
         displayElement[0] != '') {
-      displayElement[4] = 'Win';
+      _showWinDialog(displayElement[0]);
     } else if (displayElement[2] == displayElement[4] &&
         displayElement[2] == displayElement[6] &&
         displayElement[2] != '') {
-      displayElement[4] = 'Win';
+      _showWinDialog(displayElement[2]);
     } else if (boxfil == 9) {
       displayElement[4] = 'DRAW';
+    }
+  }
+
+  void _showWinDialog(String winner) {
+    showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text("\" $winner\" is winner!!!"),
+            actions: [
+              OutlinedButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: const Text('Go Again'))
+            ],
+          );
+        });
+    if (winner == 'X') {
+      xWins++;
+    } else if (winner == 'O') {
+      oWins++;
     }
   }
 }
