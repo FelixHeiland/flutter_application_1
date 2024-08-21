@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
+/*import 'package:flutter/material.dart';
 
 class OwnWidget extends StatelessWidget{
-  final String? xAndOs; 
-const OwnWidget({super.key, this.xAndOs});
+  List<String> displayElement =['','','','','','','','',''];
+const OwnWidget({super.key, this.displayElement});
 @override
   Widget build(BuildContext context) {
 return Padding(
@@ -12,8 +12,9 @@ return Padding(
     decoration: const BoxDecoration(
       color: Colors.green
     ),
-    child: Center(child: Text(xAndOs == null ?'':xAndOs!,style: TextStyle(fontWeight: FontWeight.bold),),),
+    child: Center(child: Text(displayElement ,
+      style: TextStyle(fontWeight: FontWeight.bold),),),
   ),
 );
   }
-}
+}*/
