@@ -42,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: Colors.amber,
+        backgroundColor: Colors.green[800],
         title: Text('player X = $xWins player O = $oWins'),
       ),
       body: Center(
@@ -71,7 +71,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Center(
                     child: Text(
                       displayElement[index],
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 35),
                     ),
                   ),
                 ),
@@ -79,6 +80,11 @@ class _MyHomePageState extends State<MyHomePage> {
             },
           ),
         ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.green[800],
+        child: ElevatedButton(
+            onPressed: _clearScoreBoard, child: Text('Clear Board')),
       ),
     );
   }
@@ -131,7 +137,7 @@ class _MyHomePageState extends State<MyHomePage> {
         displayElement[2] != '') {
       _showWinDialog(displayElement[2]);
     } else if (boxfil == 9) {
-      displayElement[4] = 'DRAW';
+      _showWDrawDialog;
     }
   }
 
@@ -144,10 +150,13 @@ class _MyHomePageState extends State<MyHomePage> {
             title: Text("\" $winner\" is winner!!!"),
             actions: [
               OutlinedButton(
+                  child: const Text('Go Again'),
                   onPressed: () {
                     Navigator.of(context).pop();
-                  },
-                  child: const Text('Go Again'))
+                    for (int i = 0; i < 9; i++) {
+                      displayElement[i] = '';
+                    }
+                  })
             ],
           );
         });
@@ -156,5 +165,37 @@ class _MyHomePageState extends State<MyHomePage> {
     } else if (winner == 'O') {
       oWins++;
     }
+  }
+
+  void _clearScoreBoard() {
+    setState(() {
+      xWins = 0;
+      oWins = 0;
+      for (int i = 0; i < 9; i++) {
+        displayElement[i] = '';
+      }
+    });
+    boxfil = 0;
+  }
+
+  void _showWDrawDialog(String draw) {
+    showDialog(
+        barrierDismissible: false,
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: const Text(" Its a draw!!!"),
+            actions: [
+              OutlinedButton(
+                  child: const Text('Go Again'),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                    for (int i = 0; i < 9; i++) {
+                      displayElement[i] = '';
+                    }
+                  })
+            ],
+          );
+        });
   }
 }
