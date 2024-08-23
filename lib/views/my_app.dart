@@ -137,7 +137,7 @@ class _MyHomePageState extends State<MyHomePage> {
         displayElement[2] != '') {
       _showWinDialog(displayElement[2]);
     } else if (boxfil == 9) {
-      _showWDrawDialog;
+      _showWDrawDialog('Draw');
     }
   }
 
