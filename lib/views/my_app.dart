@@ -155,6 +155,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     Navigator.of(context).pop();
                     for (int i = 0; i < 9; i++) {
                       displayElement[i] = '';
+                      boxfil = 0;
                     }
                   })
             ],
@@ -192,6 +193,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     Navigator.of(context).pop();
                     for (int i = 0; i < 9; i++) {
                       displayElement[i] = '';
+                      boxfil = 0;
                     }
                   })
             ],
