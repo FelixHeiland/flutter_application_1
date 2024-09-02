@@ -72,7 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Text(
                       displayElement[index],
                       style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 35),
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 45),
                     ),
                   ),
                 ),
